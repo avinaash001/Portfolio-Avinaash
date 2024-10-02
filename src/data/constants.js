@@ -20,7 +20,7 @@ export const Bio = {
     "Programmer",
   ],
   description:
-    "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
+    "I am a motivated and adaptable individual, driven by a passion for continuous learning and personal growth. With a commitment to excellence, I consistently strive to deliver high-quality results. My positive attitude and growth mindset empower me to embrace new challenges and contribute meaningfully. I am excited to make a lasting impact and achieve great success in all my endeavors.",
   github: "https://github.com/avinaash001",
   resume:"/",
   linkedin: "https://in.linkedin.com/in/avinash-tiwari-979060236",
@@ -187,7 +187,7 @@ export const education = [
     //date: "Apr 2019 - Apr 2025",
     grade: "69.38%",
     desc: "I completed my graduation at Marwari College, Ranchi, where I studied Accounts Hons.",
-    degree: "B.Com",
+    degree: "Ranchi University, B.Com",
   },
   {
     id: 1,
