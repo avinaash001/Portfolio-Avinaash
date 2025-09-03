@@ -131,7 +131,7 @@ function Footer() {
           </SocialMediaIcon>
         </SocialMediaIcons>
         <Copyright>
-          &copy; 2024 Avinash Tiwari. All rights reserved.
+          &copy; 2025 Avinash Tiwari. All rights reserved.
           <br />
           {/* <span>Total Visitors: {totalVisitor}</span> */}
         </Copyright>
