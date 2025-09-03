@@ -133,7 +133,7 @@ function Footer() {
         <Copyright>
           &copy; 2024 Avinash Tiwari. All rights reserved.
           <br />
-          <span>Total Visitors: {totalVisitor}</span>
+          {/* <span>Total Visitors: {totalVisitor}</span> */}
         </Copyright>
       </FooterWrapper>
     </FooterContainer>
