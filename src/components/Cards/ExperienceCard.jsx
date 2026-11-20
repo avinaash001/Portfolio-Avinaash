@@ -1,186 +1,210 @@
-import React from 'react'
-import styled from 'styled-components'
-
-const Document = styled.img`
-    display: none;
-    height: 70px;
-    width: fit-content;
-    background-color: #000;
-    border-radius: 10px;
-    &:hover{
-        cursor: pointer;
-        opacity: 0.8;
-    }
-`
-
-const Description = styled.div`
-    width: 100%;
-    font-size: 15px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.text_primary + 99};
-    margin-bottom: 10px;
-    @media only screen and (max-width: 768px){
-        font-size: 12px;
-    }
-`
-
-const Span = styled.span`
-overflow: hidden;
-display: -webkit-box;
-max-width: 100%;
--webkit-line-clamp: 4;
--webkit-box-orient: vertical;
-text-overflow: ellipsis;
-`
+import React, { useState } from 'react';
+import styled from 'styled-components';
 
 const Card = styled.div`
-    width: 650px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-    padding: 12px 16px;
-    justify-content: space-between;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition: all 0.3s ease-in-out;
-    &:hover{
-        box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
-        transform: translateY(-5px);
-    }
-    @media only screen and (max-width: 768px){
-        padding: 10px;
-        gap: 8px;
-        width: 300px;
-    }
+  width: 100%;
+  max-width: 650px;
+  border-radius: 12px;
+  box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+  padding: 16px 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: ${({ theme }) => theme.card};
+  border: 1px solid rgba(133, 76, 230, 0.35);
+  transition: all 0.3s ease-in-out;
 
-    &:hover ${Document}{
-        display: flex;
-    }
+  &:hover {
+    box-shadow: 0px 8px 30px rgba(133, 76, 230, 0.25);
+    border-color: ${({ theme }) => theme.primary};
+    transform: translateY(-4px);
+  }
 
-    &:hover ${Span}{
-        overflow: visible;
-        -webkit-line-clamp: unset;
-
-    }
-
-    border: 0.1px solid #306EE8;
-    box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
-`
+  @media only screen and (max-width: 768px) {
+    padding: 12px 14px;
+    gap: 10px;
+    max-width: 100%;
+  }
+`;
 
 const Top = styled.div`
-    width: 100%;
-    display: flex;
-    gap: 12px
-`
+  width: 100%;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+`;
 
 const Image = styled.img`
-    height: 50px;
-    background-color: #000;
-    border-radius: 10px;
-    margin-top: 4px;
-    @media only screen and (max-width: 768px){
-        height: 40px;
-    }
-`
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+  background-color: #0E0D1A;
+  border-radius: 10px;
+  padding: 4px;
+  border: 1px solid rgba(133, 76, 230, 0.2);
+
+  @media only screen and (max-width: 768px) {
+    height: 42px;
+    width: 42px;
+  }
+`;
 
 const Body = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column; 
-`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
 
-
-const Role = styled.div`
-    font-size: 18px;
-    font-weight: 600;
-    color: ${({ theme }) => theme.text_primary + 99};
-    @media only screen and (max-width: 768px){
-        font-size: 14px;
-    }
-`
+const Role = styled.h3`
+  font-size: 18px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text_primary};
+  @media only screen and (max-width: 768px) {
+    font-size: 15px;
+  }
+`;
 
 const Company = styled.div`
-    font-size: 14px;
-    font-weight: 500;
-    color: ${({ theme }) => theme.text_secondary + 99};
-    @media only screen and (max-width: 768px){
-        font-size: 12px;
-    }
-`
+  font-size: 14px;
+  font-weight: 500;
+  color: ${({ theme }) => theme.text_secondary};
+  @media only screen and (max-width: 768px) {
+    font-size: 13px;
+  }
+`;
 
 const Date = styled.div`
-    font-size: 12px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.text_secondary + 80};
-    @media only screen and (max-width: 768px){
-        font-size: 10px;
-    }
-`
+  font-size: 12px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.text_secondary};
+  opacity: 0.8;
+  @media only screen and (max-width: 768px) {
+    font-size: 11px;
+  }
+`;
 
+const Description = styled.div`
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.text_primary};
+  line-height: 1.6;
+  opacity: 0.92;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 13px;
+  }
+`;
+
+const DescText = styled.p`
+  margin: 0;
+  ${({ expanded }) =>
+    !expanded &&
+    `
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  `}
+`;
+
+const ToggleButton = styled.button`
+  background: none;
+  border: none;
+  color: ${({ theme }) => theme.primary};
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 0 0 0;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: #BE1ADB;
+    text-decoration: underline;
+  }
+`;
 
 const Skills = styled.div`
-    width: 100%;
-    display: flex;
-    gap: 12px;
-    margin-top: -10px;
-`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 10px;
+`;
+
+const SkillsTitle = styled.span`
+  font-size: 13px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text_primary};
+`;
 
 const ItemWrapper = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+`;
 
-const Skill = styled.div`
-    font-size: 15px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.text_primary + 99};
-    @media only screen and (max-width: 768px){
-        font-size: 12px;
-    }
-`
+const SkillTag = styled.span`
+  font-size: 12px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.text_primary};
+  background: rgba(133, 76, 230, 0.12);
+  border: 1px solid rgba(133, 76, 230, 0.25);
+  border-radius: 6px;
+  padding: 3px 8px;
 
-
+  @media only screen and (max-width: 768px) {
+    font-size: 11px;
+    padding: 2px 6px;
+  }
+`;
 
 const ExperienceCard = ({ experience }) => {
-    return (
-        <Card>
-            <Top>
-                <Image src={experience.img} />
-                <Body>
-                    <Role>{experience.role}</Role>
-                    <Company>{experience.company}</Company>
-                    <Date>{experience.date}</Date>
-                </Body>
-            </Top>
-            <Description>
-                {experience?.desc &&
-                    <Span>{experience?.desc}</Span>
+  const [expanded, setExpanded] = useState(false);
 
-                }
-                {experience?.skills &&
-                    <>
-                        <br />
-                        <Skills>
-                            <b>Skills:</b>
-                            <ItemWrapper>
-                                {experience?.skills?.map((skill, index) => (
-                                    <Skill>• {skill}</Skill>
-                                ))}
-                            </ItemWrapper>
-                        </Skills>
-                    </>
-                }
-            </Description>
-            {experience.doc &&
-                <a href={experience.doc} target="new">
-                    <Document src={experience.doc} />
-                </a>
-            }
-        </Card>
-    )
-}
+  return (
+    <Card>
+      <Top>
+        <Image src={experience.img} alt={experience.company} loading="lazy" />
+        <Body>
+          <Role>{experience.role}</Role>
+          <Company>{experience.company}</Company>
+          <Date>{experience.date}</Date>
+        </Body>
+      </Top>
+      <Description>
+        {experience?.desc && (
+          <>
+            <DescText expanded={expanded}>{experience.desc}</DescText>
+            <ToggleButton
+              type="button"
+              onClick={() => setExpanded(!expanded)}
+              aria-expanded={expanded}
+            >
+              {expanded ? 'Show less ▴' : 'Read more ▾'}
+            </ToggleButton>
+          </>
+        )}
+        {experience?.skills && (
+          <Skills>
+            <SkillsTitle>Skills used:</SkillsTitle>
+            <ItemWrapper>
+              {experience.skills.map((skill) => (
+                <SkillTag key={skill}>{skill}</SkillTag>
+              ))}
+            </ItemWrapper>
+          </Skills>
+        )}
+      </Description>
+    </Card>
+  );
+};
 
-export default ExperienceCard
+export default ExperienceCard;

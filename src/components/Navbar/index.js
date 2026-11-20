@@ -1,65 +1,119 @@
-import React from 'react'
-import { Nav, NavLink, NavbarContainer, Span, NavLogo, NavItems, GitHubButton, ButtonContainer, MobileIcon, MobileMenu, MobileNavLogo, MobileLink } from './NavbarStyledComponent'
-import { DiCssdeck } from 'react-icons/di';
-import { FaBars } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import {
+  Nav,
+  NavLink,
+  NavbarContainer,
+  Span,
+  NavLogo,
+  LogoBadge,
+  NavItems,
+  GitHubButton,
+  ButtonContainer,
+  MobileIcon,
+  MobileMenu,
+  MobileLink,
+} from './NavbarStyledComponent';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import { Bio } from '../../data/constants';
-import { Close, CloseRounded } from '@mui/icons-material';
-import { useTheme } from 'styled-components';
+
+const navItemsList = [
+  { name: 'About', href: '#about' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Education', href: '#education' },
+  { name: 'Contact', href: '#contact' },
+];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const theme = useTheme()
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('about');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 120;
+      const sections = navItemsList.map((item) => item.href.substring(1));
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
+        if (element) {
+          const top = element.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(sections[i]);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <Nav>
       <NavbarContainer>
-        <NavLogo to='/'>
-          <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: '20;', cursor: 'pointer' }}>
-            <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
-          </a>
+        <NavLogo to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <LogoBadge>AT</LogoBadge>
+          <Span>Avinash Tiwari</Span>
         </NavLogo>
-        <MobileIcon>
-          <FaBars onClick={() => {
-            setIsOpen(!isOpen)
-          }} />
+
+        <MobileIcon
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
+        >
+          {isOpen ? <FaTimes /> : <FaBars />}
         </MobileIcon>
+
         <NavItems>
-          <NavLink href="#about">About</NavLink>
-          <NavLink href='#skills'>Skills</NavLink>
-          <NavLink href='#experience'>Experience</NavLink>
-          {/* <NavLink href='#projects'>Projects</NavLink> */}
-          <NavLink href='#education'>Education</NavLink>
-          <NavLink href='#contact'>Contact</NavLink>
+          {navItemsList.map((item) => (
+            <li key={item.name}>
+              <NavLink
+                href={item.href}
+                active={activeSection === item.href.substring(1)}
+              >
+                {item.name}
+              </NavLink>
+            </li>
+          ))}
         </NavItems>
+
         <ButtonContainer>
-          <GitHubButton href={Bio.github} target="_blank">Github Profile</GitHubButton>
+          <GitHubButton href={Bio.github} target="_blank" rel="noopener noreferrer">
+            GitHub Profile
+          </GitHubButton>
         </ButtonContainer>
-        {
-          isOpen &&
-          <MobileMenu isOpen={isOpen}>
-            <MobileLink href="#about" onClick={() => {
-              setIsOpen(!isOpen)
-            }}>About</MobileLink>
-            <MobileLink href='#skills' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Skills</MobileLink>
-            <MobileLink href='#experience' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Experience</MobileLink>
-            {/* <MobileLink href='#projects' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Projects</MobileLink> */}
-            <MobileLink href='#education' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Education</MobileLink>
-            <MobileLink href='#contact' onClick={() => {
-              setIsOpen(!isOpen)
-            }}>Contact</MobileLink>
-            <GitHubButton style={{padding: '10px 16px',background: `${theme.primary}`, color: 'white',width: 'max-content'}} href={Bio.github} target="_blank">Github Profile</GitHubButton>
-          </MobileMenu>
-        }
+
+        <MobileMenu isOpen={isOpen}>
+          {navItemsList.map((item) => (
+            <MobileLink
+              key={item.name}
+              href={item.href}
+              active={activeSection === item.href.substring(1)}
+              onClick={closeMenu}
+            >
+              {item.name}
+            </MobileLink>
+          ))}
+          <GitHubButton
+            style={{ width: '80%', textAlign: 'center', marginTop: '8px' }}
+            href={Bio.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenu}
+          >
+            GitHub Profile
+          </GitHubButton>
+        </MobileMenu>
       </NavbarContainer>
     </Nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

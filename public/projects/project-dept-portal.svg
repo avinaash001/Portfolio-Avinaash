@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <defs>
+    <linearGradient id="bgDept" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B2238" />
+      <stop offset="100%" stop-color="#0B0F1C" />
+    </linearGradient>
+    <linearGradient id="deptGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="50%" stop-color="#854CE6" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+    <linearGradient id="cardGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(59, 130, 246, 0.2)" />
+      <stop offset="100%" stop-color="rgba(20, 24, 38, 0.88)" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="360" fill="url(#bgDept)" />
+
+  <!-- Ambient circles -->
+  <circle cx="320" cy="135" r="110" fill="url(#deptGrad)" opacity="0.14" />
+  <circle cx="560" cy="70" r="140" fill="url(#deptGrad)" opacity="0.05" />
+  <circle cx="80" cy="290" r="120" fill="url(#deptGrad)" opacity="0.05" />
+
+  <!-- Frame -->
+  <rect x="140" y="45" width="360" height="200" rx="12" fill="url(#cardGrad4)" stroke="rgba(59, 130, 246, 0.4)" stroke-width="1.5" />
+  <circle cx="165" cy="65" r="4.5" fill="#FF5F56" />
+  <circle cx="178" cy="65" r="4.5" fill="#FFBD2E" />
+  <circle cx="191" cy="65" r="4.5" fill="#27C93F" />
+  <line x1="140" y1="80" x2="500" y2="80" stroke="rgba(59, 130, 246, 0.25)" stroke-width="1" />
+
+  <!-- Government Building / Department Portal Icon -->
+  <!-- Pediment / Roof -->
+  <polygon points="320,95 240,125 400,125" fill="none" stroke="url(#deptGrad)" stroke-width="2.5" stroke-linejoin="round" />
+  <!-- Pillars -->
+  <rect x="255" y="130" width="12" height="42" rx="2" fill="url(#deptGrad)" opacity="0.9" />
+  <rect x="285" y="130" width="12" height="42" rx="2" fill="url(#deptGrad)" opacity="0.9" />
+  <rect x="314" y="130" width="12" height="42" rx="2" fill="url(#deptGrad)" opacity="0.9" />
+  <rect x="343" y="130" width="12" height="42" rx="2" fill="url(#deptGrad)" opacity="0.9" />
+  <rect x="373" y="130" width="12" height="42" rx="2" fill="url(#deptGrad)" opacity="0.9" />
+  <!-- Base -->
+  <rect x="235" y="172" width="170" height="6" rx="2" fill="url(#deptGrad)" />
+
+  <!-- Badge Pill -->
+  <rect x="210" y="215" width="220" height="22" rx="11" fill="rgba(245, 158, 11, 0.18)" stroke="#F59E0B" stroke-width="1" />
+  <text x="320" y="230" font-family="'Poppins', system-ui, sans-serif" font-weight="600" font-size="11" fill="#F59E0B" text-anchor="middle" letter-spacing="0.5">AGRICULTURE &amp; ANIMAL HUSBANDRY</text>
+
+  <!-- Titles -->
+  <text x="320" y="285" font-family="'Poppins', system-ui, sans-serif" font-weight="700" font-size="20" fill="#F2F3F4" text-anchor="middle" letter-spacing="0.5">Agriculture Dept. Official Portal</text>
+  <text x="320" y="315" font-family="'Poppins', system-ui, sans-serif" font-weight="500" font-size="14" fill="#D1D5DB" text-anchor="middle">Schemes &bull; Tenders &bull; Notifications &bull; Media</text>
+</svg>

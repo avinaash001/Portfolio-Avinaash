@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+  <defs>
+    <linearGradient id="agyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#854CE6"/>
+      <stop offset="50%" stop-color="#4285F4"/>
+      <stop offset="100%" stop-color="#34A853"/>
+    </linearGradient>
+  </defs>
+  <!-- Futuristic floating delta with orbit ring -->
+  <ellipse cx="12" cy="12" rx="11" ry="4.5" fill="none" stroke="url(#agyGrad)" stroke-width="1.8" transform="rotate(-25 12 12)"/>
+  <polygon points="12,3 19,17 5,17" fill="url(#agyGrad)" opacity="0.95"/>
+  <circle cx="12" cy="11.5" r="2.2" fill="#FFFFFF"/>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <defs>
+    <linearGradient id="bgMusic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#241438" />
+      <stop offset="100%" stop-color="#0E0A18" />
+    </linearGradient>
+    <linearGradient id="sunsetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7A00" />
+      <stop offset="50%" stop-color="#BE1ADB" />
+      <stop offset="100%" stop-color="#854CE6" />
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(190, 26, 219, 0.2)" />
+      <stop offset="100%" stop-color="rgba(25, 25, 36, 0.85)" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="360" fill="url(#bgMusic)" />
+
+  <!-- Ambient circles -->
+  <circle cx="320" cy="135" r="110" fill="url(#sunsetGrad)" opacity="0.16" />
+  <circle cx="560" cy="80" r="130" fill="url(#sunsetGrad)" opacity="0.06" />
+  <circle cx="90" cy="290" r="120" fill="url(#sunsetGrad)" opacity="0.06" />
+
+  <!-- Frame -->
+  <rect x="140" y="45" width="360" height="200" rx="12" fill="url(#cardGrad2)" stroke="rgba(190, 26, 219, 0.4)" stroke-width="1.5" />
+  <circle cx="165" cy="65" r="4.5" fill="#FF5F56" />
+  <circle cx="178" cy="65" r="4.5" fill="#FFBD2E" />
+  <circle cx="191" cy="65" r="4.5" fill="#27C93F" />
+  <line x1="140" y1="80" x2="500" y2="80" stroke="rgba(190, 26, 219, 0.25)" stroke-width="1" />
+
+  <!-- Music Notes & Staff -->
+  <path d="M300 170V105l55-12v67" stroke="url(#sunsetGrad)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="288" cy="170" r="14" fill="url(#sunsetGrad)"/>
+  <circle cx="343" cy="158" r="14" fill="url(#sunsetGrad)"/>
+
+  <!-- Audio Waveform Visualizer -->
+  <rect x="200" y="145" width="5" height="25" rx="2.5" fill="#854CE6" opacity="0.6"/>
+  <rect x="212" y="130" width="5" height="48" rx="2.5" fill="#BE1ADB" opacity="0.8"/>
+  <rect x="224" y="115" width="5" height="72" rx="2.5" fill="#FF7A00"/>
+  <rect x="236" y="135" width="5" height="42" rx="2.5" fill="#BE1ADB" opacity="0.9"/>
+  <rect x="248" y="150" width="5" height="20" rx="2.5" fill="#854CE6" opacity="0.6"/>
+
+  <rect x="382" y="150" width="5" height="20" rx="2.5" fill="#854CE6" opacity="0.6"/>
+  <rect x="394" y="135" width="5" height="42" rx="2.5" fill="#BE1ADB" opacity="0.9"/>
+  <rect x="406" y="115" width="5" height="72" rx="2.5" fill="#FF7A00"/>
+  <rect x="418" y="130" width="5" height="48" rx="2.5" fill="#BE1ADB" opacity="0.8"/>
+  <rect x="430" y="145" width="5" height="25" rx="2.5" fill="#854CE6" opacity="0.6"/>
+
+  <!-- Titles -->
+  <text x="320" y="285" font-family="'Poppins', system-ui, sans-serif" font-weight="700" font-size="22" fill="#F2F3F4" text-anchor="middle" letter-spacing="0.5">Chhath Puja Music Player</text>
+  <text x="320" y="315" font-family="'Poppins', system-ui, sans-serif" font-weight="500" font-size="14" fill="#D1D5DB" text-anchor="middle">Aesthetic Single-Page Audio App &bull; Curated Playlist</text>
+</svg>

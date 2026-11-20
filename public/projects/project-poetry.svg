@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <defs>
+    <linearGradient id="bgPoetry" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1638" />
+      <stop offset="100%" stop-color="#0E0B1A" />
+    </linearGradient>
+    <linearGradient id="purpleAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#854CE6" />
+      <stop offset="100%" stop-color="#BE1ADB" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(133, 76, 230, 0.25)" />
+      <stop offset="100%" stop-color="rgba(25, 25, 36, 0.85)" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="360" fill="url(#bgPoetry)" />
+
+  <!-- Decorative circles -->
+  <circle cx="320" cy="140" r="100" fill="url(#purpleAccent)" opacity="0.12" />
+  <circle cx="540" cy="60" r="140" fill="url(#purpleAccent)" opacity="0.06" />
+  <circle cx="80" cy="300" r="120" fill="url(#purpleAccent)" opacity="0.06" />
+
+  <!-- Inner browser / card frame -->
+  <rect x="140" y="45" width="360" height="200" rx="12" fill="url(#cardGrad)" stroke="rgba(133, 76, 230, 0.4)" stroke-width="1.5" />
+  <circle cx="165" cy="65" r="4.5" fill="#FF5F56" />
+  <circle cx="178" cy="65" r="4.5" fill="#FFBD2E" />
+  <circle cx="191" cy="65" r="4.5" fill="#27C93F" />
+  <line x1="140" y1="80" x2="500" y2="80" stroke="rgba(133, 76, 230, 0.25)" stroke-width="1" />
+
+  <!-- Quill / Book Icon -->
+  <path d="M295 190c12-32 30-58 65-90-12 28-12 52-4 75-20 4-40 8-61 15z" fill="url(#purpleAccent)" />
+  <path d="M290 195l14-4c-4 8-8 12-14 16 1-4 1-8 0-12z" fill="#FFFFFF" opacity="0.9" />
+
+  <!-- Poem lines illustration -->
+  <line x1="200" y1="110" x2="270" y2="110" stroke="#854CE6" stroke-width="3" stroke-linecap="round" opacity="0.7" />
+  <line x1="200" y1="125" x2="255" y2="125" stroke="#F2F3F4" stroke-width="2.5" stroke-linecap="round" opacity="0.6" />
+  <line x1="200" y1="140" x2="275" y2="140" stroke="#F2F3F4" stroke-width="2.5" stroke-linecap="round" opacity="0.6" />
+  <line x1="200" y1="155" x2="245" y2="155" stroke="#F2F3F4" stroke-width="2.5" stroke-linecap="round" opacity="0.6" />
+
+  <!-- Card Title & Subtitle -->
+  <text x="320" y="285" font-family="'Poppins', system-ui, sans-serif" font-weight="700" font-size="22" fill="#F2F3F4" text-anchor="middle" letter-spacing="0.5">Poetry Publishing Website</text>
+  <text x="320" y="315" font-family="'Poppins', system-ui, sans-serif" font-weight="500" font-size="14" fill="#D1D5DB" text-anchor="middle">React &bull; Content Management &bull; Vercel</text>
+</svg>

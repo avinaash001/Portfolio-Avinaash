@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <defs>
+    <linearGradient id="bgKisan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#112920" />
+      <stop offset="100%" stop-color="#0A1412" />
+    </linearGradient>
+    <linearGradient id="kisanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="50%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#854CE6" />
+    </linearGradient>
+    <linearGradient id="cardGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(16, 185, 129, 0.2)" />
+      <stop offset="100%" stop-color="rgba(18, 25, 23, 0.88)" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="360" fill="url(#bgKisan)" />
+
+  <!-- Ambient circles -->
+  <circle cx="320" cy="135" r="110" fill="url(#kisanGrad)" opacity="0.14" />
+  <circle cx="560" cy="70" r="140" fill="url(#kisanGrad)" opacity="0.05" />
+  <circle cx="80" cy="290" r="120" fill="url(#kisanGrad)" opacity="0.05" />
+
+  <!-- Frame -->
+  <rect x="140" y="45" width="360" height="200" rx="12" fill="url(#cardGrad3)" stroke="rgba(16, 185, 129, 0.4)" stroke-width="1.5" />
+  <circle cx="165" cy="65" r="4.5" fill="#FF5F56" />
+  <circle cx="178" cy="65" r="4.5" fill="#FFBD2E" />
+  <circle cx="191" cy="65" r="4.5" fill="#27C93F" />
+  <line x1="140" y1="80" x2="500" y2="80" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1" />
+
+  <!-- Portal Emblem: Shield with Sprout & Agriculture Motif -->
+  <path d="M320 95c-35 0-60 14-60 42 0 45 60 80 60 80s60-35 60-80c0-28-25-42-60-42z" fill="none" stroke="url(#kisanGrad)" stroke-width="2.5" />
+  <!-- Sprout -->
+  <path d="M320 175v-38c0-14 14-24 28-19-2 14-11 23-28 23z" fill="#10B981" />
+  <path d="M320 162c0-11-11-19-22-15 2 11 9 19 22 19z" fill="#059669" />
+
+  <!-- Badge Pill -->
+  <rect x="230" y="215" width="180" height="22" rx="11" fill="rgba(16, 185, 129, 0.2)" stroke="#10B981" stroke-width="1" />
+  <text x="320" y="230" font-family="'Poppins', system-ui, sans-serif" font-weight="600" font-size="11" fill="#10B981" text-anchor="middle" letter-spacing="0.5">GOVT. OF JHARKHAND</text>
+
+  <!-- Titles -->
+  <text x="320" y="285" font-family="'Poppins', system-ui, sans-serif" font-weight="700" font-size="22" fill="#F2F3F4" text-anchor="middle" letter-spacing="0.5">Birsa Kisan Integrated Portal</text>
+  <text x="320" y="315" font-family="'Poppins', system-ui, sans-serif" font-weight="500" font-size="14" fill="#D1D5DB" text-anchor="middle">Aadhaar Farmer Registration &bull; Multi-Role Portal</text>
+</svg>
